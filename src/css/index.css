@@ -13,8 +13,12 @@ input {
     outline: none;
 }
 
-.panel-info h4 {
+.panel-info h4 a {
     color: white;
+}
+
+.search {
+    width: 40%;
 }
 
 .tag {
@@ -22,11 +26,15 @@ input {
 	-moz-box-shadow: none; 
     box-shadow: none;
     margin-right: 5px;
+    color: black;
+    background-color: #f5efb2;
 }
 
 .tag:hover {
     cursor: default;
     font-weight: normal;
+    color: black;
+    background-color: #f5efb2;
 }
 
 .show-image {
@@ -37,6 +45,10 @@ input {
 .show-info {
     padding: 5px 10px;
     font-size: 1.2em;
+}
+
+.show-more {
+    float: right;
 }
 
 .show-list {
