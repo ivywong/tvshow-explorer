@@ -3,12 +3,12 @@ import './css/App.css';
 import FilteredList from './FilteredList';
 import shows from './shows.json';
 
-// Generate list of networks
-const networks = Array.from(new Set(shows.map(item => {
+// generate list of networks from json data
+const networks = Array.from(new Set(shows.map(function(item) {
     if (item.network) {
         return item.network.name;
     }
-}).filter(function(item) { return item; }).sort()));
+}))).filter(function(item) { return item; }).sort();
 
 class App extends Component {
     render() {

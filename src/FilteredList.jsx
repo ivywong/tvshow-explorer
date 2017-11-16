@@ -5,6 +5,7 @@ import List from './List';
 class FilteredList extends Component {
     constructor(props) {
         super(props);
+        // default values for each filter
         this.state = {
             search: "",
             status: "All",
@@ -17,20 +18,23 @@ class FilteredList extends Component {
     onSearch = (event) => {
         this.setState({search: event.target.value.trim().toLowerCase()});
     }
- 
+
+    // updates the current status filter
     onStatusDropdown = (event) => {
         this.setState({status: event});
     }   
 
+    // updates the current network filter
     onNetworkDropdown = (event) => {
         this.setState({network: event});
     }
 
-    // Sets the state whenever the user types on the search bar
+    // Sets the state whenever the user changes what they want to sort on
     onSortSelect = (event) => {
         this.setState({sort: event, isSort: event !== "Unsorted"});
     }
 
+    // sorts the list based on the current sort state
     sortItem = (a, b) => {
         if (this.state.sort === "Name (A-Z)") {
             return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -49,6 +53,7 @@ class FilteredList extends Component {
         }
     }
 
+    // checks if the show matches the search query based on title, genre, and applies each filter
     filterItem = (item) => {
         // Checks if the current search term is contained in this item
         return (item.name.toLowerCase().search(this.state.search) !== -1 
@@ -74,7 +79,7 @@ class FilteredList extends Component {
                       <MenuItem eventKey="Lowest Rated">Lowest Rated</MenuItem>
                       <MenuItem eventKey="Highest Rated">Highest Rated</MenuItem>
                     </DropdownButton>
-                    <DropdownButton id="typeDropdown" title={"Status: " + this.state.status} onSelect={this.onStatusDropdown}>
+                    <DropdownButton id="statusDropdown" title={"Status: " + this.state.status} onSelect={this.onStatusDropdown}>
                       <MenuItem eventKey="All">All</MenuItem>
                       <MenuItem eventKey="Ended">Ended</MenuItem>
                       <MenuItem eventKey="Running">Running</MenuItem>
@@ -91,7 +96,8 @@ class FilteredList extends Component {
                     </div>
                 </div>
 
-                {this.state.isSort ? (
+                {// only sort the list of items if we want to sort   
+                this.state.isSort ? (
                     <List items={this.props.items.filter(this.filterItem).sort(this.sortItem)} />
                 ) : (
                     <List items={this.props.items.filter(this.filterItem)} />

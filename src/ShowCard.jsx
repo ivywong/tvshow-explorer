@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 
+/*
+ * Component for displaying show information 
+ */
 class ShowCard extends Component {
     render() {
+        // get necessary information based on json data
+        var website = this.props.show.officialSite || this.props.show.url;
+        var year = this.props.show.premiered.split("-")[0];
+        var header = this.props.show.name + " (" + year + ")"; 
+
+        // remove HTML tags from summary
+        var cleanSummary = this.props.show.summary.replace(/<(?:.|\n)*?>/gm, '');
         return (
             <div className="panel panel-info">
-                <div className="panel-heading"><h4><a href={this.props.show.officialSite || this.props.show.url}>{this.props.show.name + " (" + this.props.show.premiered.split("-")[0] + ")"}</a></h4></div>
+                <div className="panel-heading"><h4><a href={website}>{header}</a></h4></div>
                 <div className="panel-body">
                     <div className="show-image">
                         <img src={this.props.show.image.medium} alt={this.props.show.name}></img>
@@ -16,8 +26,8 @@ class ShowCard extends Component {
                             })}
                         </div>
                         <p>Rating: <b>{this.props.show.rating.average}</b></p>
-                        <p>{this.props.show.summary.replace(/<(?:.|\n)*?>/gm, '')}</p>
-                        <a href={this.props.show.officialSite || this.props.show.url} className="btn btn-info show-more">Learn more...</a>
+                        <p>{cleanSummary}</p>
+                        <a href={website} className="btn btn-info show-more">Learn more...</a>
                     </div>
                 </div>
             </div>
