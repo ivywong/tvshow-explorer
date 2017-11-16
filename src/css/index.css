@@ -74,6 +74,9 @@ input {
     .show-list {
         min-width: 80%;
     }
+    .search {
+        min-width: 80%;
+    }
 }
 
 
