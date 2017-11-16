@@ -4,7 +4,7 @@ import ShowCard from './ShowCard';
 /*
   The list component will take the list of items passed in as a property
   and create an HTML list with those items. */
-class List extends Component {
+class ShowList extends Component {
     renderList() {
         const items = this.props.items.map(item => {
             return <ShowCard show={item} key={item.id} />
@@ -24,4 +24,4 @@ class List extends Component {
     }
 }
 
-export default List;
+export default ShowList;

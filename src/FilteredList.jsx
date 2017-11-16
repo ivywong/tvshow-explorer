@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem} from 'react-bootstrap';
-import List from './List';
+import ShowList from './ShowList';
 
 class FilteredList extends Component {
     constructor(props) {
@@ -98,9 +98,9 @@ class FilteredList extends Component {
 
                 {// only sort the list of items if we want to sort   
                 this.state.isSort ? (
-                    <List items={this.props.items.filter(this.filterItem).sort(this.sortItem)} />
+                    <ShowList items={this.props.items.filter(this.filterItem).sort(this.sortItem)} />
                 ) : (
-                    <List items={this.props.items.filter(this.filterItem)} />
+                    <ShowList items={this.props.items.filter(this.filterItem)} />
                 )}
             </div>
         );
