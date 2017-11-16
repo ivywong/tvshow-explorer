@@ -1,4 +1,6 @@
 TV Show Explorer
 ================
 
-App link [here](http://ivywong.me/tvshow-explorer/)
+Webapp deployed [here](http://ivywong.me/tvshow-explorer/).
+
+Data taken from the [TVmaze API](http://www.tvmaze.com/api).

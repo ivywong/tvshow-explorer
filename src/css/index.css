@@ -13,6 +13,11 @@ input {
     outline: none;
 }
 
+.panel-body {
+    display: flex;
+    flex-direction: row;
+}
+
 .panel-info h4 a {
     color: white;
 }
@@ -38,8 +43,7 @@ input {
 }
 
 .show-image {
-    float: left;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 .show-info {
@@ -53,9 +57,23 @@ input {
 
 .show-list {
     margin: 10px auto;
-    max-width: 55%;
+    max-width: 45%;
 }
 
 .show-list-info {
     text-align: center;
 }
+
+@media screen and (max-width: 1000px) {
+    .panel-body {
+        flex-direction: column;
+    }
+    .show-image {
+        margin: 10px auto;
+    }
+    .show-list {
+        min-width: 80%;
+    }
+}
+
+
